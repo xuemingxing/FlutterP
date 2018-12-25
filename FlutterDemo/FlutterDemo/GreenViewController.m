@@ -17,7 +17,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"绿色";
-    self.view.backgroundColor = [UIColor greenColor];
 }
 
 @end
