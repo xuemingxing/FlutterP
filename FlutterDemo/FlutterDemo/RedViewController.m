@@ -20,7 +20,8 @@
 }
 - (IBAction)jumpToFlutter:(id)sender
 {
-    
+    FlutterViewController *flutterVC = [[FlutterViewController alloc] init];
+    [self.navigationController pushViewController:flutterVC animated:YES];
 }
 
 @end

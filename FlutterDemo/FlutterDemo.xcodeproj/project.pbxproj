@@ -16,7 +16,6 @@
 		047CF29321D21E340098145D /* FlutterDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 047CF29221D21E340098145D /* FlutterDemoUITests.m */; };
 		047CF29F21D21F3D0098145D /* RedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047CF29E21D21F3D0098145D /* RedViewController.m */; };
 		047CF2A221D21F460098145D /* GreenViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 047CF2A121D21F460098145D /* GreenViewController.m */; };
-		047CF2A721D23B950098145D /* Flutter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 047CF2A621D23B950098145D /* Flutter.framework */; };
 		A0DF0C93BA5E60C4437B11C7 /* libPods-FlutterDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 96AF4C8D413BE9C6B9B7CDE0 /* libPods-FlutterDemo.a */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +30,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		040DD93C21D388E700D6288A /* FlutterDemo.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlutterDemo.pch; sourceTree = "<group>"; };
 		047CF27621D21E340098145D /* FlutterDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlutterDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		047CF27921D21E340098145D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		047CF27A21D21E340098145D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -48,7 +48,6 @@
 		047CF29E21D21F3D0098145D /* RedViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RedViewController.m; sourceTree = "<group>"; };
 		047CF2A021D21F460098145D /* GreenViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GreenViewController.h; sourceTree = "<group>"; };
 		047CF2A121D21F460098145D /* GreenViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GreenViewController.m; sourceTree = "<group>"; };
-		047CF2A621D23B950098145D /* Flutter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Flutter.framework; sourceTree = "<group>"; };
 		6E4A6206FE6BBBC75D992DA4 /* Pods-FlutterDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlutterDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-FlutterDemo/Pods-FlutterDemo.release.xcconfig"; sourceTree = "<group>"; };
 		96AF4C8D413BE9C6B9B7CDE0 /* libPods-FlutterDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FlutterDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEE00EA90B6B1FD6A23F66BA /* Pods-FlutterDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FlutterDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FlutterDemo/Pods-FlutterDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -59,7 +58,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				047CF2A721D23B950098145D /* Flutter.framework in Frameworks */,
 				A0DF0C93BA5E60C4437B11C7 /* libPods-FlutterDemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -97,7 +95,6 @@
 		047CF27821D21E340098145D /* FlutterDemo */ = {
 			isa = PBXGroup;
 			children = (
-				047CF2A621D23B950098145D /* Flutter.framework */,
 				047CF27921D21E340098145D /* AppDelegate.h */,
 				047CF27A21D21E340098145D /* AppDelegate.m */,
 				047CF27C21D21E340098145D /* ViewController.h */,
@@ -111,6 +108,7 @@
 				047CF28421D21E340098145D /* LaunchScreen.storyboard */,
 				047CF28721D21E340098145D /* Info.plist */,
 				047CF28821D21E340098145D /* main.m */,
+				040DD93C21D388E700D6288A /* FlutterDemo.pch */,
 			);
 			path = FlutterDemo;
 			sourceTree = "<group>";
@@ -148,6 +146,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 047CF29721D21E340098145D /* Build configuration list for PBXNativeTarget "FlutterDemo" */;
 			buildPhases = (
+				040DD93B21D386F900D6288A /* ShellScript */,
 				C34FF046C198F44E6E120D82 /* [CP] Check Pods Manifest.lock */,
 				047CF27221D21E340098145D /* Sources */,
 				047CF27321D21E340098145D /* Frameworks */,
@@ -242,18 +241,27 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		040DD93B21D386F900D6288A /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" build\n\"$FLUTTER_ROOT/packages/flutter_tools/bin/xcode_backend.sh\" embed";
+		};
 		2F2946A116E7F434BF4A545D /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 			);
 			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -266,15 +274,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-FlutterDemo/Pods-FlutterDemo-frameworks.sh",
 				"${PODS_ROOT}/../../my_flutter/.ios/Flutter/engine/Flutter.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Flutter.framework",
 			);
@@ -288,15 +292,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-FlutterDemo-checkManifestLockResult.txt",
 			);
@@ -473,6 +473,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/FlutterDemo",
 				);
+				GCC_PREFIX_HEADER = "$(SRCROOT)/FlutterDemo/FlutterDemo.pch";
 				INFOPLIST_FILE = FlutterDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -493,6 +494,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/FlutterDemo",
 				);
+				GCC_PREFIX_HEADER = "$(SRCROOT)/FlutterDemo/FlutterDemo.pch";
 				INFOPLIST_FILE = FlutterDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
