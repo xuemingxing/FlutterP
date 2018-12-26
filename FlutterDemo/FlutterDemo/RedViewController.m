@@ -18,5 +18,9 @@
     [super viewDidLoad];
     self.title = @"红色";
 }
+- (IBAction)jumpToFlutter:(id)sender
+{
+    
+}
 
 @end
